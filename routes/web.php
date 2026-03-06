@@ -20,6 +20,21 @@ Route::get('/', function () {
 // Route::resour , Posts::class); 
 // Route::get("/post/{name}/{id}",[Posts::class,'index']);
 // Route::get("/path/{name}",[Posts::class , "store"]);
+Route::get('/multiple',function (){
+    return view('multiple') ;
+});
+
+Route::get('/even',function(){
+    return view('even');
+});
+
+Route::get('/prime',function (){
+    return view('prime');
+});
+
+Route::get('/home',function(){
+    return view('home');
+});
 Route::get("/post/{id}",[Posts::class,"index"]);
 Route::get('/category',[Posts::class ,"category"]);
 Route::get('/types',[Posts::class , "type"]);
