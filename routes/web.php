@@ -35,6 +35,18 @@ Route::get('/prime',function (){
 Route::get('/home',function(){
     return view('home');
 });
+
+Route::get('/multiTable',function (){
+    $j = 6 ;
+    return view ('multiTable' , compact ('j'));
+});
+Route::get('/multi/{number?}',function ($number = null){
+    $j = $number??2 ;
+    return view('multi',compact('j'));
+
+});
+
+
 Route::get("/post/{id}",[Posts::class,"index"]);
 Route::get('/category',[Posts::class ,"category"]);
 Route::get('/types',[Posts::class , "type"]);
