@@ -45,6 +45,67 @@ Route::get('/multi/{number?}',function ($number = null){
     return view('multi',compact('j'));
 
 });
+Route::get('/minitest', function () {
+    $bill = [
+        ['item' => 'Milk', 'quantity' => 2, 'price' => 20],
+        ['item' => 'Bread', 'quantity' => 1, 'price' => 15],
+        ['item' => 'Eggs', 'quantity' => 12, 'price' => 2],
+        ['item' => 'Apple', 'quantity' => 6, 'price' => 5],
+    ];
+    return view('minitest', compact('bill'));
+});
+Route::get('/transcript', function () {
+    $studentName = "John Doe";
+    $studentId = "S123456";
+
+    $courses = [
+        ['course' => 'Mathematics', 'grade' => 'A'],
+        ['course' => 'Physics', 'grade' => 'B+'],
+        ['course' => 'Chemistry', 'grade' => 'A-'],
+        ['course' => 'Computer Science', 'grade' => 'A'],
+        ['course' => 'English', 'grade' => 'B'],
+    ];
+
+    return view('transcript', compact('studentName', 'studentId', 'courses'));
+});
+
+
+
+Route::get('/buy', function () {
+    $products = [
+        [
+            'name' => 'Apple iPhone 15',
+            'image' => 'https://via.placeholder.com/150',
+            'price' => 999,
+            'description' => 'Latest iPhone with amazing features.',
+        ],
+        [
+            'name' => 'Samsung Galaxy S23',
+            'image' => 'https://via.placeholder.com/150',
+            'price' => 899,
+            'description' => 'High-end Samsung smartphone.',
+        ],
+        [
+            'name' => 'Sony Headphones',
+            'image' => 'https://via.placeholder.com/150',
+            'price' => 150,
+            'description' => 'Noise-cancelling over-ear headphones.',
+        ],
+        [
+            'name' => 'Dell Laptop',
+            'image' => 'https://via.placeholder.com/150',
+            'price' => 1200,
+            'description' => 'Powerful laptop for work and gaming.',
+        ],
+    ];
+
+    return view('buy', compact('products'));
+});
+Route::get('/calculator', function () {
+    return view('calculator');
+});
+
+
 
 
 Route::get("/post/{id}",[Posts::class,"index"]);
