@@ -3,23 +3,15 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Posts;
 
+
+//==================================
+//          Lecture practice
+//==================================
+
 Route::get('/', function () {
     return view('welcome');
 });
-// Route::get("/book",function(){
-// return "Fares";
-// });
-// Route::get("/post/{id}",function($id) {
-//     return "post num " . $id ;
-// });
-// Route::get("/contact/{number}",function($number){
-//     return "Your contact number is " . $number ;
-// });             
 
-// Route::get('/post/{id}', [Posts::class, 'index']);
-// Route::resour , Posts::class); 
-// Route::get("/post/{name}/{id}",[Posts::class,'index']);
-// Route::get("/path/{name}",[Posts::class , "store"]);
 Route::get('/multiple',function (){
     return view('multiple') ;
 });
@@ -106,6 +98,11 @@ Route::get('/calculator', function () {
 });
 
 
+//=======================================================
+
+//==================================
+//          self practice
+//==================================
 
 
 Route::get("/post/{id}",[Posts::class,"index"]);
@@ -116,3 +113,43 @@ Route::get('/sign/{num?}',function ($num){
 })->where('num', '[0-9]+');
 Route::get('/products',[Posts::class,'index'])->name('products.index');
 Route::get('/test',[Posts::class,'index']);
+Route::get("/book",function(){
+return "Fares";
+});
+Route::get("/post/{id}",function($id) {
+    return "post num " . $id ;
+});
+Route::get("/contact/{number}",function($number){
+    return "Your contact number is " . $number ;
+});             
+
+Route::get('/post/{id}', [Posts::class, 'index']);
+Route::get("/post/{name}/{id}",[Posts::class,'index']);
+Route::get("/path/{name}",[Posts::class , "store"]);
+//======================================================
+
+
+
+//==================================
+//          lab practice
+//==================================
+
+Route::get('/master',function (){
+    return view('master');
+});
+Route::get('/prod', function () {
+
+    $products = [];
+    
+    for ($i=1; $i<=20; $i++) {
+        $products[] = [
+            'name' => "Product $i",
+            'image' => 'https://picsum.photos/300?random='.$i,
+            'price' => rand(10,500),
+            'description' => 'Sample product description for item '.$i
+        ];
+    }
+    
+    return view('prod', compact('products'));
+    
+    });
